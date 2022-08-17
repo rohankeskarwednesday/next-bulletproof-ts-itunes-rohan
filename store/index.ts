@@ -1,15 +1,16 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { useDispatch, TypedUseSelectorHook, useSelector } from "react-redux";
-import repoReducer from "@slices/repos";
+import songReducer from "@app/store/slices/songs";
 // import { recommendationsApi } from "@features/repos/api/getRecommendations";
-import { repoInfoApi } from "@features/info/api/getRepoInfo";
+// import { repoInfoApi } from "@features/info/api/getRepoInfo";
 import middlewares from "./middlewares";
+import { songsApi } from "@app/features/songs/api/getItunesSongs";
 
 export const store = configureStore({
   reducer: {
-    repos: repoReducer,
-    // [recommendationsApi.reducerPath]: recommendationsApi.reducer,
-    [repoInfoApi.reducerPath]: repoInfoApi.reducer,
+    songs: songReducer,
+    [songsApi.reducerPath]: songsApi.reducer,
+    // [repoInfoApi.reducerPath]: repoInfoApi.reducer,
   },
   middleware: getDefaultMiddleware => getDefaultMiddleware().concat(middlewares),
 });
