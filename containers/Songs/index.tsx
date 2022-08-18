@@ -40,7 +40,6 @@ export const Songs: React.FC<SongContainerProps> = ({ intl }) => {
   }, 500);
 
   const handleSearch = (value: string) => {
-    setCurrentPage(1);
     setSearchTerm(value);
   };
 
@@ -63,7 +62,7 @@ export const Songs: React.FC<SongContainerProps> = ({ intl }) => {
         onSearch={handleSearch}
         data-testid="search-input"
       />
-      <SongsList loading={isLoading} data={data} error={error} />
+      <SongsList loading={isFetching} data={data} error={error} />
       {/* <div></div> */}
       {data && (
         <Affix offsetBottom={0}>
