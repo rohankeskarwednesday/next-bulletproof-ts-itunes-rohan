@@ -23,7 +23,6 @@ const { Meta } = Card;
 const SongsList: React.FC<SongListProps> = props => {
   const { data, loading, error } = props;
 
-  const [songPLaying, setSongPlaying] = useState<boolean>(false);
   const [currentSong, setCurrentSong] = useState<string>("");
 
   const intl = useIntl();
@@ -38,14 +37,10 @@ const SongsList: React.FC<SongListProps> = props => {
     <Alert
       type="error"
       message={intl.formatMessage({ id: "request_failed" })}
-      // message={}
       style={{ marginTop: "10px" }}
     />
   ) : (
     <If condition={items.length !== 0 || loading}>
-      {/* {totalCount !== 0 && (
-        <BlockText id="matching_songs" values={{ totalCount }} style={{ marginTop: "10px" }} />
-      )} */}
       <div data-testid="songs-list" className={styles.SongList}>
         <Skeleton loading={loading} active>
           {items.map((item, index: number) => (
@@ -53,7 +48,7 @@ const SongsList: React.FC<SongListProps> = props => {
               key={index}
               hoverable
               style={{ width: 200, marginTop: "30px", backgroundColor: "#f5f5f5" }}
-              cover={<img src={item.artworkUrl100} />}
+              cover={<img src={item.artworkUrl100} style={{ maxHeight: "200px" }} />}
             >
               <Meta
                 title={
@@ -67,11 +62,10 @@ const SongsList: React.FC<SongListProps> = props => {
               <AudioPlayer
                 currentSongUrl={currentSong}
                 playSong={(songUrl: string) => {
-                  setSongPlaying(true);
                   setCurrentSong(songUrl);
                 }}
                 songUrl={item.previewUrl}
-                songPlaying={songPLaying}
+                trackId={item.trackId}
               />
             </Card>
           ))}

@@ -4,9 +4,9 @@ import styles from "@app/styles/AudioPlayer.module.css";
 
 interface AudioPlayerProps {
   playSong?: any;
+  trackId?: any;
   currentSongUrl?: any;
   songUrl?: any;
-  songPlaying: boolean;
 }
 
 const AudioPlayer: React.FC<AudioPlayerProps> = props => {
@@ -29,7 +29,13 @@ const AudioPlayer: React.FC<AudioPlayerProps> = props => {
 
   return (
     <div className={styles.AudioPlayerContainer}>
-      <audio src={props.songUrl} onPlay={playSong} controls ref={audioPlayerRef} />
+      <audio
+        src={props.songUrl}
+        onPlay={playSong}
+        controls
+        ref={audioPlayerRef}
+        data-testid={props.trackId}
+      />
     </div>
   );
 };

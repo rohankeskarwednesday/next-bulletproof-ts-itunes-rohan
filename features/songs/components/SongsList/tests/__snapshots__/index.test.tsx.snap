@@ -16,6 +16,7 @@ exports[`<SongsList /> should render and match the snapshot 1`] = `
         >
           <img
             src="https://is4-ssl.mzstatic.com/image/thumb/Music/a0/74/81/mzi.ybszkvnq.tif/100x100bb.jpg"
+            style="max-height: 200px;"
           />
         </div>
         <div
@@ -45,7 +46,53 @@ exports[`<SongsList /> should render and match the snapshot 1`] = `
           >
             <audio
               controls=""
+              data-testid="258618600"
               src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/af/83/79/af837916-90f9-d503-bf08-13ffb9957f21/mzaf_16662673119862695322.plus.aac.p.m4a"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-card ant-card-bordered ant-card-hoverable"
+        style="width: 200px; margin-top: 30px; background-color: rgb(245, 245, 245);"
+      >
+        <div
+          class="ant-card-cover"
+        >
+          <img
+            src="https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/e6/d8/61/e6d86177-ae8c-e84e-dfcc-0042687066ed/13UAAIM41955.rgb.jpg/100x100bb.jpg"
+            style="max-height: 200px;"
+          />
+        </div>
+        <div
+          class="ant-card-body"
+        >
+          <div
+            class="ant-card-meta"
+          >
+            <div
+              class="ant-card-meta-detail"
+            >
+              <div
+                class="ant-card-meta-title"
+              >
+                <p
+                  class="T__StyledText-sc-apdcd0-0 fjJkvM"
+                  data-testid="t"
+                  display="block"
+                >
+                  Bad Blood (Bonus Track Version)
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="AudioPlayerContainer"
+          >
+            <audio
+              controls=""
+              data-testid="1440858321"
+              src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/1e/e3/20/1ee32037-f1a3-e46b-011f-76552e7c5fa2/mzaf_6001471003681391544.plus.aac.p.m4a"
             />
           </div>
         </div>
