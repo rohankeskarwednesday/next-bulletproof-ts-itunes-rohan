@@ -63,7 +63,6 @@ export const Songs: React.FC<SongContainerProps> = ({ intl }) => {
         data-testid="search-input"
       />
       <SongsList loading={isFetching} data={data} error={error} />
-      {/* <div></div> */}
       {data && (
         <Affix offsetBottom={0}>
           <div style={{ display: "flex", backgroundColor: "#fff", padding: "10px 0px" }}>
