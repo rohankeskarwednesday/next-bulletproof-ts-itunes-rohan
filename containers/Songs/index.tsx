@@ -31,6 +31,10 @@ export const Songs: React.FC<SongContainerProps> = ({ intl }) => {
     }
   }, 500);
 
+  const handleSearch = (value: string) => {
+    setSearchTerm(value);
+  };
+
   return (
     <Container
       padding={20}
@@ -40,7 +44,7 @@ export const Songs: React.FC<SongContainerProps> = ({ intl }) => {
         alignSelf: "center",
       }}
     >
-      <Search placeholder="Search for songs" onChange={handleOnChange} />
+      <Search placeholder="Search for songs" onChange={handleOnChange} onSearch={handleSearch} />
       <SongsList loading={isLoading} data={data} />
     </Container>
   );

@@ -26,13 +26,13 @@ const SongsList: React.FC<SongListProps> = props => {
   return (
     <If condition={items.length !== 0 || loading}>
       {totalCount !== 0 && <BlockText id="matching_songs" values={{ totalCount }} />}
-      <div data-testid="songs-list" style={{ display: "flex", flexWrap: "wrap" }}>
+      <div data-test-id="songs-list" style={{ display: "flex", flexWrap: "wrap" }}>
         <Skeleton loading={loading} active>
           {items.map((item, index: number) => (
             <Card
               key={index}
               hoverable
-              style={{ width: 200, marginLeft: "30px", marginTop: "30px" }}
+              style={{ width: 200, marginLeft: "20px", marginTop: "30px" }}
               cover={<img src={item.artworkUrl100} />}
             >
               <Meta title={item.collectionCensoredName} description={""} />
