@@ -4,14 +4,12 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 export interface SongState {
   songsCount: number;
   songs: any[];
-  songPlaying: boolean;
   error?: string;
 }
 
 const initialState: SongState = {
   songsCount: 0,
   songs: [],
-  songPlaying: false,
   error: undefined,
 };
 
@@ -19,13 +17,13 @@ export const songsSlice = createSlice({
   name: "songs",
   initialState,
   reducers: {
-    successGetRepos: (state: SongState, action: PayloadAction<any[]>) => {
+    successGetSongs: (state: SongState, action: PayloadAction<any[]>) => {
       state.songs = action.payload;
       state.songsCount = 0;
     },
   },
 });
 
-export const { successGetRepos } = songsSlice.actions;
+export const { successGetSongs } = songsSlice.actions;
 
 export default songsSlice.reducer;
