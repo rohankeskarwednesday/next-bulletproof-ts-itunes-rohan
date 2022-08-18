@@ -3,21 +3,13 @@
 exports[`<SongsList /> should render and match the snapshot 1`] = `
 <body>
   <div>
-    <p
-      class="T__StyledText-sc-apdcd0-0 fjJkvM"
-      data-testid="t"
-      display="block"
-      style="margin-top: 10px;"
-    >
-      Total number of matching songs: 1
-    </p>
     <div
+      class="SongList"
       data-testid="songs-list"
-      style="display: flex; flex-wrap: wrap;"
     >
       <div
         class="ant-card ant-card-bordered ant-card-hoverable"
-        style="width: 200px; margin-left: 20px; margin-top: 30px;"
+        style="width: 200px; margin-top: 30px; background-color: rgb(245, 245, 245);"
       >
         <div
           class="ant-card-cover"
@@ -47,6 +39,14 @@ exports[`<SongsList /> should render and match the snapshot 1`] = `
                 </p>
               </div>
             </div>
+          </div>
+          <div
+            class="AudioPlayerContainer"
+          >
+            <audio
+              controls=""
+              src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/af/83/79/af837916-90f9-d503-bf08-13ffb9957f21/mzaf_16662673119862695322.plus.aac.p.m4a"
+            />
           </div>
         </div>
       </div>
