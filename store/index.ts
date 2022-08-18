@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { useDispatch, TypedUseSelectorHook, useSelector } from "react-redux";
-import songReducer from "@app/store/slices/songs";
+import songReducer from "./slices/songs";
 // import { recommendationsApi } from "@features/repos/api/getRecommendations";
 // import { repoInfoApi } from "@features/info/api/getRepoInfo";
 import middlewares from "./middlewares";

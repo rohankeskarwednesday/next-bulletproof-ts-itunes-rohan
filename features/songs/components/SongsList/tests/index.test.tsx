@@ -1,9 +1,11 @@
-import { render } from "@testing-library/react";
+// import { render } from "@testing-library/react";
+import { render } from "@utils/testUtils";
 import SongsList from "../index";
 
 describe("<SongsList />", () => {
   const songsListProps = {
     loading: false,
+    error: undefined,
     data: {
       resultCount: 1,
       results: [
@@ -54,7 +56,8 @@ describe("<SongsList />", () => {
   });
 
   it("should contain 1 Song card", () => {
-    const { getAllByTestId } = render(<SongsList {...songsListProps} />);
+    const { getAllByTestId, debug } = render(<SongsList {...songsListProps} />);
+    // debug(getAllByTestId("songs-list"));
     expect(getAllByTestId("songs-list").length).toBe(1);
   });
 });

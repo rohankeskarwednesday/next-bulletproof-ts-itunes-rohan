@@ -1,11 +1,11 @@
 {
-  "repo_list": "Repository List",
-  "repo_search": "Repository Search",
+  "song_list": "Songs List",
+  "song_search": "Search for songs",
   "get_repo_details": "Get details of repositories",
   "search_query": "Search query: {repoName}",
-  "matching_repos": "Total number of matching repos: {totalCount}",
+  "matching_songs": "Total number of matching songs: {totalCount}",
   "something_went_wrong": "Sorry. Something went wrong! Please try again in sometime.",
-  "repository_name": "Repository Name: {name}",
+  "song_name": "{collectionCensoredName}",
   "repo_name_unavailable": "Repository name is unavailable",
   "repository_full_name": "Repository full name: {fullName}",
   "repo_full_name_unavailable": "Repository full name unavaiable",
@@ -21,5 +21,6 @@
   "respo_search_default": "Search Default",
   "not_found": "No records found",
   "test": "test",
-  "offline_message": "You are Offline!"
+  "offline_message": "You are Offline!",
+  "request_failed": "Failed to search songs, Please try again."
 }
