@@ -1,0 +1,6 @@
+.SongList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 10px 0px 0px 30px;
+}

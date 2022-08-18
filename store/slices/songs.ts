@@ -4,12 +4,14 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 export interface SongState {
   songsCount: number;
   songs: any[];
+  songPlaying: boolean;
   error?: string;
 }
 
 const initialState: SongState = {
   songsCount: 0,
   songs: [],
+  songPlaying: false,
   error: undefined,
 };
 

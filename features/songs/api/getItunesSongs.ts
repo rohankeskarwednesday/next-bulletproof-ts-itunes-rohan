@@ -4,17 +4,19 @@ import { itunesApiService } from "@utils/apiUtils";
 
 type Params = {
   searchTerm: string;
+  offset: number;
+  limit: number;
 };
 
 export const songsApi = itunesApiService.injectEndpoints({
   endpoints: builder => ({
     fetchSongs: builder.query<RepoInfoResponse, object>({
       query: (params: Params) => {
-        if (!params.searchTerm) {
+        if (!params.searchTerm || !params.offset || !params.limit) {
           throw new Error("Invalid params");
         }
 
-        return `search?term=${params.searchTerm}`;
+        return `search?term=${params.searchTerm}&offset=${params.offset}&limit=${params.limit}`;
       },
       transformResponse: (response: RepoInfoResponse) => {
         return convertObjectToCamelCase<RepoInfoResponse>(response);

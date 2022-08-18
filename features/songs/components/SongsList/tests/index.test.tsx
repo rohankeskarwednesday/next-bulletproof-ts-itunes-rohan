@@ -56,8 +56,7 @@ describe("<SongsList />", () => {
   });
 
   it("should contain 1 Song card", () => {
-    const { getAllByTestId, debug } = render(<SongsList {...songsListProps} />);
-    // debug(getAllByTestId("songs-list"));
+    const { getAllByTestId } = render(<SongsList {...songsListProps} />);
     expect(getAllByTestId("songs-list").length).toBe(1);
   });
 });

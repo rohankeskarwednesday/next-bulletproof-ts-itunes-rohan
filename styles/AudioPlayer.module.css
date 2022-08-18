@@ -1,0 +1,16 @@
+.AudioPlayerContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  /* background-color: #fff; */
+}
+
+.AudioPlayerStatus {
+  display: flex;
+  align-items: center;
+}
+
+.AudioPlayerContainer audio {
+  width: 100%;
+  background-color: transparent;
+}

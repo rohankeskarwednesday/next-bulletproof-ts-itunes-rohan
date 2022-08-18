@@ -4,11 +4,13 @@
  *
  */
 
-import React from "react";
+import React, { useState } from "react";
 import get from "lodash/get";
 import { Skeleton, Card, Alert } from "antd";
 import { T, If } from "@common";
 import { useIntl } from "react-intl";
+import styles from "@app/styles/SongList.module.css";
+import AudioPlayer from "@features/songs/components/AudioPlayer";
 
 interface SongListProps {
   data?: any;
@@ -20,6 +22,10 @@ const { Meta } = Card;
 
 const SongsList: React.FC<SongListProps> = props => {
   const { data, loading, error } = props;
+
+  const [songPLaying, setSongPlaying] = useState<boolean>(false);
+  const [currentSong, setCurrentSong] = useState<string>("");
+
   const intl = useIntl();
 
   const items: any[] = get(data, "results", []);
@@ -37,16 +43,16 @@ const SongsList: React.FC<SongListProps> = props => {
     />
   ) : (
     <If condition={items.length !== 0 || loading}>
-      {totalCount !== 0 && (
+      {/* {totalCount !== 0 && (
         <BlockText id="matching_songs" values={{ totalCount }} style={{ marginTop: "10px" }} />
-      )}
-      <div data-testid="songs-list" style={{ display: "flex", flexWrap: "wrap" }}>
+      )} */}
+      <div data-testid="songs-list" className={styles.SongList}>
         <Skeleton loading={loading} active>
           {items.map((item, index: number) => (
             <Card
               key={index}
               hoverable
-              style={{ width: 200, marginLeft: "20px", marginTop: "30px" }}
+              style={{ width: 200, marginTop: "30px", backgroundColor: "#f5f5f5" }}
               cover={<img src={item.artworkUrl100} />}
             >
               <Meta
@@ -57,6 +63,15 @@ const SongsList: React.FC<SongListProps> = props => {
                   />
                 }
                 description={""}
+              />
+              <AudioPlayer
+                currentSongUrl={currentSong}
+                playSong={(songUrl: string) => {
+                  setSongPlaying(true);
+                  setCurrentSong(songUrl);
+                }}
+                songUrl={item.previewUrl}
+                songPlaying={songPLaying}
               />
             </Card>
           ))}

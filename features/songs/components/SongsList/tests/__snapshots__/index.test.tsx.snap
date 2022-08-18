@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SongsList /> should render and match the snapshot 1`] = `
+<body>
+  <div>
+    <p
+      class="T__StyledText-sc-apdcd0-0 fjJkvM"
+      data-testid="t"
+      display="block"
+      style="margin-top: 10px;"
+    >
+      Total number of matching songs: 1
+    </p>
+    <div
+      data-testid="songs-list"
+      style="display: flex; flex-wrap: wrap;"
+    >
+      <div
+        class="ant-card ant-card-bordered ant-card-hoverable"
+        style="width: 200px; margin-left: 20px; margin-top: 30px;"
+      >
+        <div
+          class="ant-card-cover"
+        >
+          <img
+            src="https://is4-ssl.mzstatic.com/image/thumb/Music/a0/74/81/mzi.ybszkvnq.tif/100x100bb.jpg"
+          />
+        </div>
+        <div
+          class="ant-card-body"
+        >
+          <div
+            class="ant-card-meta"
+          >
+            <div
+              class="ant-card-meta-detail"
+            >
+              <div
+                class="ant-card-meta-title"
+              >
+                <p
+                  class="T__StyledText-sc-apdcd0-0 fjJkvM"
+                  data-testid="t"
+                  display="block"
+                >
+                  Little Dragon
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
