@@ -1,13 +1,10 @@
 import { Container, CustomCard, If, T } from "@common";
 import SongsList from "@features/songs/components/SongsList";
 import { Divider, Input, Pagination, Row, Affix } from "antd";
-// import { ErrorState, Recommended, RepoList, YouAreAwesome } from "@features/repos/components";
-// import { IRepoError, Recommendation } from "@features/repos/types";
 import { IntlShape, injectIntl } from "react-intl";
 import React, { memo, useEffect, useState } from "react";
 import { debounce, get, isEmpty } from "lodash-es";
 import { compose } from "redux";
-// import { useFetchRecommendationQuery } from "@features/repos/api/getRecommendations";
 import { useFetchSongsQuery } from "@app/features/songs/api/getItunesSongs";
 
 interface SongContainerProps {

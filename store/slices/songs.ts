@@ -19,7 +19,7 @@ export const songsSlice = createSlice({
   reducers: {
     successGetSongs: (state: SongState, action: PayloadAction<any[]>) => {
       state.songs = action.payload;
-      state.songsCount = 0;
+      state.songsCount = action.payload.length;
     },
   },
 });
