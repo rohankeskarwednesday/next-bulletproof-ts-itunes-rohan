@@ -71,7 +71,14 @@ export const Songs: React.FC<SongContainerProps> = ({ intl }) => {
       <SongsList loading={isFetching} data={data} error={error} />
       {data && (
         <Affix offsetBottom={0}>
-          <div style={{ display: "flex", backgroundColor: "#fff", padding: "10px 0px" }}>
+          <div
+            style={{
+              display: "flex",
+              backgroundColor: "#fff",
+              padding: "10px 0px",
+              justifyContent: "center",
+            }}
+          >
             <Pagination
               defaultCurrent={1}
               total={50}

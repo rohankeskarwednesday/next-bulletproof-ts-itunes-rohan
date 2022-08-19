@@ -1,4 +1,5 @@
-import "../styles/globals.css";
+// import "../styles/globals.css";
+import "../styles/global.less";
 import type { AppProps } from "next/app";
 import { ErrorBoundary } from "@common";
 import Head from "next/head";
