@@ -21,6 +21,7 @@ export const songsApi = itunesApiService.injectEndpoints({
       transformResponse: (response: RepoInfoResponse) => {
         return convertObjectToCamelCase<RepoInfoResponse>(response);
       },
+      providesTags: ["Tracks"],
     }),
   }),
   overrideExisting: false,

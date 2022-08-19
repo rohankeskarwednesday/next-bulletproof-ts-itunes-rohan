@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TrackInfo /> should render and match the snapshot 1`] = `
+<body>
+  <div>
+    <div
+      style="width: 100%; height: 100vh; display: flex; justify-content: center;"
+    >
+      <div
+        class="ant-card ant-card-bordered"
+        style="width: 400px; height: 400px; margin: 20px;"
+      >
+        <div
+          class="ant-card-cover"
+        >
+          <div
+            style="background-image: url(https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/e6/d8/61/e6d86177-ae8c-e84e-dfcc-0042687066ed/13UAAIM41955.rgb.jpg/600x600bb.jpg); width: 100%; height: 200px; background-position: center; background-size: cover; background-repeat: no-repeat;"
+          />
+        </div>
+        <div
+          class="ant-card-body"
+        >
+          <div
+            class="ant-card-meta"
+          >
+            <div
+              class="ant-card-meta-detail"
+            >
+              <div
+                class="ant-card-meta-title"
+              >
+                Pompeii
+              </div>
+              <div
+                class="ant-card-meta-description"
+              >
+                Bastille
+              </div>
+            </div>
+          </div>
+          <p
+            data-testid="track-genre"
+            style="margin-top: 20px;"
+          >
+            Genre:
+            <span
+              class="ant-tag ant-tag-cyan"
+              style="border-radius: 100px; margin-left: 10px;"
+            >
+              Alternative
+            </span>
+          </p>
+          <p
+            data-testid="track-kind"
+            style="margin-top: 10px; font-size: 12px;"
+          >
+            <p
+              class="T__StyledText-sc-apdcd0-0 fjJkvM"
+              data-testid="t"
+              display="block"
+              style="font-size: 15px;"
+            >
+              Kind: song
+            </p>
+          </p>
+          <a
+            href="https://music.apple.com/us/album/pompeii/1440858222?i=1440858321&uo=4"
+            target="__blank"
+          >
+            <p
+              style="margin-top: 10px; cursor: pointer; color: blue;"
+            >
+              View details
+            </p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;

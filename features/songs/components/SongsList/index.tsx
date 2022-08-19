@@ -5,6 +5,7 @@
  */
 
 import React, { useState } from "react";
+import Link from "next/link";
 import get from "lodash/get";
 import { Skeleton, Card, Alert } from "antd";
 import { T, If } from "@common";
@@ -36,7 +37,7 @@ const SongsList: React.FC<SongListProps> = props => {
   return errorOccured ? (
     <Alert
       type="error"
-      message={intl.formatMessage({ id: "request_failed" })}
+      message={intl.formatMessage({ id: "song_search_failed" })}
       style={{ marginTop: "10px" }}
     />
   ) : (
@@ -44,30 +45,51 @@ const SongsList: React.FC<SongListProps> = props => {
       <div data-testid="songs-list" className={styles.SongList}>
         <Skeleton loading={loading} active>
           {items.map((item, index: number) => (
-            <Card
+            <Link
+              href={`/tracks/${item.trackId ? item.trackId : item.collectionId}?entity=${
+                item.wrapperType == "track" ? "song" : item.wrapperType
+              }`}
               key={index}
-              hoverable
-              style={{ width: 200, marginTop: "30px", backgroundColor: "#f5f5f5" }}
-              cover={<img src={item.artworkUrl100} style={{ maxHeight: "200px" }} />}
             >
-              <Meta
-                title={
-                  <BlockText
-                    id="song_name"
-                    values={{ collectionCensoredName: item.collectionCensoredName }}
-                  />
+              <Card
+                hoverable
+                style={{ width: 200, marginTop: "30px", backgroundColor: "#f5f5f5" }}
+                cover={
+                  <div
+                    style={{
+                      backgroundImage: `url(${item.artworkUrl100.replace("100x100", "600x600")})`,
+                      width: "100%",
+                      height: "200px",
+                      backgroundPosition: "center",
+                      backgroundSize: "cover",
+                      backgroundRepeat: "no-repeat",
+                    }}
+                  ></div>
+                  // <img
+                  //   src={item.artworkUrl100.replace("100x100", "600x600")}
+                  //   style={{ maxHeight: "200px" }}
+                  // />
                 }
-                description={""}
-              />
-              <AudioPlayer
-                currentSongUrl={currentSong}
-                playSong={(songUrl: string) => {
-                  setCurrentSong(songUrl);
-                }}
-                songUrl={item.previewUrl}
-                trackId={item.trackId}
-              />
-            </Card>
+              >
+                <Meta
+                  title={
+                    <BlockText
+                      id="song_name"
+                      values={{ collectionCensoredName: item.collectionCensoredName }}
+                    />
+                  }
+                  description={""}
+                />
+                <AudioPlayer
+                  currentSongUrl={currentSong}
+                  playSong={(songUrl: string) => {
+                    setCurrentSong(songUrl);
+                  }}
+                  songUrl={item.previewUrl}
+                  trackId={item.trackId}
+                />
+              </Card>
+            </Link>
           ))}
         </Skeleton>
       </div>
