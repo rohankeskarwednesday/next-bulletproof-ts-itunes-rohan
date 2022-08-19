@@ -1,9 +1,3 @@
-/**
- *
- * RepoList
- *
- */
-
 import React, { useState } from "react";
 import Link from "next/link";
 import get from "lodash/get";
