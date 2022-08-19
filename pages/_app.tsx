@@ -4,10 +4,12 @@ import { ErrorBoundary } from "@common";
 import Head from "next/head";
 import { IntlProvider } from "react-intl";
 import { Provider as ReduxProvider } from "react-redux";
-import messages from "../translations/en.json";
+import { messages } from "../translations/messages";
 import { store } from "@store";
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
+  const locale = navigator.language;
+
   return (
     <>
       <Head>
@@ -16,7 +18,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
           content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, viewport-fit=cover"
         />
       </Head>
-      <IntlProvider messages={messages} locale="en" defaultLocale="en">
+      <IntlProvider messages={messages[locale]} locale="en" defaultLocale="en">
         <ReduxProvider store={store}>
           <ErrorBoundary>
             <Component {...pageProps} />

@@ -54,13 +54,13 @@ const TrackInfo: React.FC<TrackInfoProps> = ({ intl, data }) => {
       }}
     >
       <Card
-        style={{ width: 400, height: 400, margin: "20px" }}
+        style={{ width: 400, height: "auto", maxHeight: 630, margin: "20px" }}
         cover={
           <div
             style={{
               backgroundImage: `url(${artworkUrl100.replace("100x100", "600x600")})`,
               width: "100%",
-              height: "200px",
+              height: "400px",
               backgroundPosition: "center",
               backgroundSize: "cover",
               backgroundRepeat: "no-repeat",
