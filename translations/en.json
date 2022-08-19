@@ -1,26 +1,18 @@
 {
   "song_list": "Songs List",
   "song_search": "Search for songs",
-  "get_repo_details": "Get details of repositories",
-  "search_query": "Search query: {repoName}",
   "matching_songs": "Total number of matching songs: {totalCount}",
   "something_went_wrong": "Sorry. Something went wrong! Please try again in sometime.",
   "song_name": "{collectionCensoredName}",
-  "repo_name_unavailable": "Repository name is unavailable",
-  "repository_full_name": "Repository full name: {fullName}",
-  "repo_full_name_unavailable": "Repository full name unavaiable",
-  "repository_stars": "Repository stars: {stars}",
-  "repo_stars_unavailable": "Repository stars are unavaiable",
   "wednesday_solutions": "Wednesday Solutions",
   "you_are_awesome": "You Are Awesome",
   "back_to_home_button": "Back to Search",
-  "recommended": "Recommendation",
-  "repo_fork_count": "Forks",
-  "repo_stars_count": "Stars",
-  "repo_watchers_count": "Watchers",
-  "respo_search_default": "Search Default",
   "not_found": "No records found",
-  "test": "test",
   "offline_message": "You are Offline!",
-  "request_failed": "Failed to search songs, Please try again."
+  "song_search_failed": "Failed to search songs, Please try again.",
+
+  "track_genre": "Genre:",
+  "track_kind": "Kind: {kind}",
+  "view_track_details": "View details",
+  "track_details_failed": "Failed to fetch track details, Please try again."
 }

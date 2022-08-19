@@ -1,0 +1,18 @@
+{
+  "song_list": "गाने की सूची",
+  "song_search": "गाने खोजें",
+  "matching_songs": "मेल खाने वाले गानों की कुल संख्या: {totalCount}",
+  "something_went_wrong": "माफ़ करना। कुछ गलत हो गया! कृपया कुछ देर बाद पुन: प्रयास करें।",
+  "song_name": "{collectionCensoredName}",
+  "wednesday_solutions": "Wednesday Solutions",
+  "you_are_awesome": "आप कमाल के है",
+  "back_to_home_button": "खोज पर वापस जाएं",
+  "not_found": "कोई रिकॉर्ड नहीं मिला",
+  "offline_message": "आप संपर्क में नहीं हैं!",
+  "song_search_failed": "गाने खोजने में विफल, कृपया पुन: प्रयास करें।",
+
+  "track_genre": "शैली:",
+  "track_kind": "प्रकार: {kind}",
+  "view_track_details": "विवरण देखें",
+  "track_details_failed": "ट्रैक विवरण प्राप्त करने में विफल, कृपया पुन: प्रयास करें।"
+}
