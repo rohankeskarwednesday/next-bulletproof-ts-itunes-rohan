@@ -6,9 +6,14 @@ import { IntlProvider } from "react-intl";
 import { Provider as ReduxProvider } from "react-redux";
 import { messages } from "../translations/messages";
 import { store } from "@store";
+import { useEffect, useState } from "react";
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
-  const locale = navigator.language;
+  const [locale, setLocale] = useState<string>("en");
+
+  useEffect(() => {
+    setLocale(navigator.language);
+  }, []);
 
   return (
     <>
@@ -17,8 +22,9 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, viewport-fit=cover"
         />
+        <title>Search for songs</title>
       </Head>
-      <IntlProvider messages={messages[locale]} locale="en" defaultLocale="en">
+      <IntlProvider messages={messages[locale]} locale={locale} defaultLocale="en">
         <ReduxProvider store={store}>
           <ErrorBoundary>
             <Component {...pageProps} />
