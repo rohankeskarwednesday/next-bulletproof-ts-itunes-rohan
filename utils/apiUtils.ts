@@ -59,10 +59,6 @@ export const itunesApiService = createApi({
       return action.payload[reducerPath];
     }
   },
-  tagTypes: ["Tracks"],
-  endpoints: (builder: any) => ({
-    viewTrack: builder.mutation({
-      query: track => ({}),
-    }),
-  }),
+  tagTypes: ["Track"],
+  endpoints: () => ({}),
 });

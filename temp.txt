@@ -8,9 +8,7 @@ type Params = {
   limit: number;
 };
 
-const songsAdapter = createEntityAdapter({
-  selectId: (track: any) => (track.trackId ? track.trackId : track.collectionId),
-});
+const songsAdapter = createEntityAdapter();
 
 const initialState = songsAdapter.getInitialState();
 
@@ -25,13 +23,10 @@ export const songsApi = itunesApiService.injectEndpoints({
         return `search?term=${params.searchTerm}&offset=${params.offset}&limit=${params.limit}`;
       },
       transformResponse: (response: any) => {
-        return songsAdapter.setAll(initialState, response.results);
-        // return convertObjectToCamelCase<any>(response);
+        songsAdapter.setAll(initialState, response);
+        return convertObjectToCamelCase<any>(response);
       },
-      providesTags: (result, error, arg) => [
-        { type: "Track", id: "LIST" },
-        ...result.ids.map(id => ({ type: "Track", id })),
-      ],
+      providesTags: ["Tracks"],
     }),
   }),
   overrideExisting: false,
@@ -39,22 +34,15 @@ export const songsApi = itunesApiService.injectEndpoints({
 
 export const { useFetchSongsQuery } = songsApi;
 
-export const selectSongsResult: any = songsApi.endpoints.fetchSongs.select({
-  searchTerm: "new song",
-  offset: 0,
-  limit: 10,
-});
+export const selectSongsResult: any = songsApi.endpoints.fetchSongs.select();
 
-const selectSongsData = createSelector(selectSongsResult, songResult => {
-  console.log({ songResult });
-  return songResult.itunes;
-});
+const selectSongsData = createSelector(
+  selectSongsResult,
+  songResult => songResult.data // normalized state object with ids & entities
+);
 
 export const {
-  selectAll: selectAllSongs,
+  selectAll: selectAllSong,
   selectById: selectSongById,
   selectIds: selectSongIds,
-} = songsAdapter.getSelectors((state: any) => {
-  console.log({ state });
-  return selectSongsData(state) ?? initialState;
-});
+} = songsAdapter.getSelectors((state: any) => selectSongsData(state) ?? initialState);

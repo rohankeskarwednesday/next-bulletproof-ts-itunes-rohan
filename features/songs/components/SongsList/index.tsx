@@ -22,8 +22,7 @@ const SongsList: React.FC<SongListProps> = props => {
 
   const intl = useIntl();
 
-  const items: any[] = get(data, "results", []);
-  const totalCount: number = get(data, "resultCount", 0);
+  const items: any[] = data ? data : [];
   const BlockText = props => <T display="block" {...props} />;
 
   const errorOccured = error != undefined && error.message != "Invalid params";
@@ -59,10 +58,6 @@ const SongsList: React.FC<SongListProps> = props => {
                       backgroundRepeat: "no-repeat",
                     }}
                   ></div>
-                  // <img
-                  //   src={item.artworkUrl100.replace("100x100", "600x600")}
-                  //   style={{ maxHeight: "200px" }}
-                  // />
                 }
               >
                 <Meta

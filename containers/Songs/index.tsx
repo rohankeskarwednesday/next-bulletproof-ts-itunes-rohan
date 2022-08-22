@@ -5,10 +5,14 @@ import { IntlShape, injectIntl } from "react-intl";
 import React, { memo, useEffect, useState } from "react";
 import { debounce } from "lodash-es";
 import { compose } from "redux";
-import { useFetchSongsQuery } from "@app/features/songs/api/getItunesSongs";
+import {
+  useFetchSongsQuery,
+  selectSongIds,
+  selectAllSongs,
+  selectSongById,
+} from "@app/features/songs/api/getItunesSongs";
 
-import { successGetSongs } from "@slices/songs";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 interface SongContainerProps {
   intl: IntlShape;
@@ -17,11 +21,9 @@ interface SongContainerProps {
 const { Search } = Input;
 
 export const Songs: React.FC<SongContainerProps> = ({ intl }) => {
-  const [searchTerm, setSearchTerm] = useState<string>("");
+  const [searchTerm, setSearchTerm] = useState<string>("new song");
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [offset, setOffset] = useState<number>(0);
-
-  const dispatch = useDispatch();
 
   const limit = 10;
 
@@ -31,11 +33,15 @@ export const Songs: React.FC<SongContainerProps> = ({ intl }) => {
     setOffset(offset);
   }, [currentPage]);
 
-  const { data, error, isLoading, isFetching } = useFetchSongsQuery({ searchTerm, offset, limit });
+  const { data, error, isLoading, isFetching, isSuccess } = useFetchSongsQuery({
+    searchTerm,
+    offset,
+    limit,
+  });
 
-  if (data) {
-    dispatch(successGetSongs(data as any));
-  }
+  const data1 = useSelector(state => selectSongIds(state));
+
+  console.log("Data: ", data, isFetching, data1);
 
   const handleOnChange = debounce((e: any) => {
     const value = e.target.value;
@@ -68,7 +74,7 @@ export const Songs: React.FC<SongContainerProps> = ({ intl }) => {
         onSearch={handleSearch}
         data-testid="search-input"
       />
-      <SongsList loading={isFetching} data={data} error={error} />
+      {/* <SongsList loading={isFetching} data={data} error={error} /> */}
       {data && (
         <Affix offsetBottom={0}>
           <div

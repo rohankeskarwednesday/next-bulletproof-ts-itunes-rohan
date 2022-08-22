@@ -7,6 +7,8 @@ import isEmpty from "lodash/isEmpty";
 import { useFetchTrackInfoQuery } from "@app/features/info/api/getTrackInfo";
 import { Alert } from "antd";
 import { useIntl } from "react-intl";
+import { useSelector } from "react-redux";
+import { selectAllSongs, selectSongById } from "@app/features/songs/api/getItunesSongs";
 
 interface SongInfoProps {
   trackId: string;
@@ -14,6 +16,12 @@ interface SongInfoProps {
 }
 
 const SongInfo: React.FC<SongInfoProps> = ({ trackId, entity }) => {
+  const tracks = useSelector(selectAllSongs);
+
+  console.log(tracks);
+
+  const track = useSelector(state => selectSongById(state, Number(trackId)));
+
   const { data, error, isLoading } = useFetchTrackInfoQuery({
     trackId: trackId,
     entity: entity,

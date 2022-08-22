@@ -17,9 +17,7 @@ const withPwa = require("next-pwa")({
   },
 });
 const withLess = require("next-with-less")({
-  lessLoaderOptions: {
-    /* ... */
-  },
+  lessLoaderOptions: {},
 });
 
 module.exports = withPlugins([

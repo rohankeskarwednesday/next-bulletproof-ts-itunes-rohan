@@ -5,12 +5,14 @@ import songReducer from "./slices/songs";
 // import { repoInfoApi } from "@features/info/api/getRepoInfo";
 import middlewares from "./middlewares";
 import { songsApi } from "@app/features/songs/api/getItunesSongs";
+import { trackInfoApi } from "@app/features/info/api/getTrackInfo";
+import { itunesApiService } from "@app/utils/apiUtils";
 
 export const store = configureStore({
   reducer: {
-    songs: songReducer,
-    [songsApi.reducerPath]: songsApi.reducer,
-    // [repoInfoApi.reducerPath]: repoInfoApi.reducer,
+    [itunesApiService.reducerPath]: itunesApiService.reducer,
+    // [songsApi.reducerPath]: songsApi.reducer,
+    // [trackInfoApi.reducerPath]: trackInfoApi.reducer,
   },
   middleware: getDefaultMiddleware => getDefaultMiddleware().concat(middlewares),
 });
