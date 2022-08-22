@@ -21,11 +21,13 @@ const withLess = require("next-with-less")({
     /* ... */
   },
 });
+const withPurgeCss = require("next-purgecss");
 
 module.exports = withPlugins([
   [withBundleAnalyzer],
   [withPwa],
   [withLess],
+  [withPurgeCss],
   nextConfig,
 
   // your other plugins here
