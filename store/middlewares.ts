@@ -1,6 +1,7 @@
 // import { repoInfoApi } from "@features/info";
-import { songsApi } from "@features/songs";
+import { itunesApiService } from "@app/utils/apiUtils";
+// import { songsApi } from "@features/songs";
 
-const middlewares = [songsApi.middleware];
+const middlewares = [itunesApiService.middleware];
 
 export default middlewares;

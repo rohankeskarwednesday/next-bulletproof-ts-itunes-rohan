@@ -59,5 +59,6 @@ export const itunesApiService = createApi({
       return action.payload[reducerPath];
     }
   },
+  tagTypes: ["Track"],
   endpoints: () => ({}),
 });

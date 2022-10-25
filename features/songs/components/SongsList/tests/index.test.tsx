@@ -1,6 +1,5 @@
 // import { render } from "@testing-library/react";
 import { fireEvent, render } from "@utils/testUtils";
-import { debug } from "console";
 
 import SongsList from "../index";
 

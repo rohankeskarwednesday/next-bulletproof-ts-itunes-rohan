@@ -16,9 +16,15 @@ const withPwa = require("next-pwa")({
     disable: process.env.NODE_ENV === "development",
   },
 });
+const withLess = require("next-with-less")({
+  lessLoaderOptions: {},
+});
+
 module.exports = withPlugins([
   [withBundleAnalyzer],
   [withPwa],
+  [withLess],
   nextConfig,
+
   // your other plugins here
 ]);
